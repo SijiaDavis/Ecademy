@@ -1,1 +1,30 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+body {
+  font-family: 'Lobster', cursive;
+  background: image_url('swirl_pattern.png');
+}
+
+.navbar {
+  border-radius: 0;
+  box-shadow: 0px 1px 3px #2a2a2a;
+  margin: 0;
+}
+
+.hero {
+  background: image_url('hero.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 370px;
+  box-shadow: 0px 3px 8px #2a2a2a;
+}
+
+.frosty {
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.9) 1px 1px;
+  text-align: center;
+}
