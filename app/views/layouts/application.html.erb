@@ -9,7 +9,7 @@
     </head>
 
     <body>
-
+        <div id="flex-content-container">
         <nav class="navbar navbar-dark bg-inverse">
             <a class="navbar-brand" href="#">Ecademy</a>
             <ul class="nav navbar-nav">
@@ -18,12 +18,20 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
+            </ul>
+            <ul class="nav navbar-nav float-xs-right">
+              <% if user_signed_in? %>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                  <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
                 </li>
+              <% end %>
             </ul>
         </nav>
         
@@ -34,5 +42,14 @@
           <p class="alert alert-danger"><%= alert %></p>
         <% end %>
         <%= yield %>
+      </div>
+      
+      <div id="footer">
+        <div class="container">
+          <em>Footer Here</em>
+          <br />
+          <%= link_to 'Link', '#' %>
+        </div>
+      </div>
     </body>
 </html>
