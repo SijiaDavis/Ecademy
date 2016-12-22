@@ -17,6 +17,7 @@ gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem "figaro"
 gem "fog"
 gem "mini_magick"
+gem 'carrierwave-aws'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
