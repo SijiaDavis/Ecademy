@@ -14,6 +14,17 @@
     <% @course.sections.each do |section| %>
     <li>
       <%= section.title %>
+      <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'btn float-xs-right btn-primary btn-xs' %>
+      <ul>
+        <% section.lessons.each do |lesson| %>
+          <li>
+            <em><%= lesson.title %></em>
+            -
+            <%= lesson.subtitle %>
+          </li>
+        <% end %>
+      </ul>
+      <br class="clr" />
     </li>
     <% end %>
   </ul>
