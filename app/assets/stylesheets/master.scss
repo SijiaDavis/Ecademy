@@ -1,5 +1,7 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Lobster');
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 body {
   font-family: 'Lobster', cursive;
@@ -78,4 +80,48 @@ body {
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   padding: 20px;
   margin-top: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul .header {
+  font-size: 25px;
+}
+
+ul .header .fa {
+  font-size: 20px;
+}
+
+.section-li {
+  border: 1px solid;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding: 20px;
+}
+
+.lessons li {
+  background: black;
+  color: white;
+  margin: 10px;
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+  padding: 8px;
+  font-size: 15px;
+}
+
+.lessons li b {
+  font-size: 25px;
+  font-weight: 100;
+}
+
+.lesson li p {
+  margin: 0;
+}
+
+.section-li {
+  border: 1px solid;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding: 20px;
+  margin: 20px;
 }

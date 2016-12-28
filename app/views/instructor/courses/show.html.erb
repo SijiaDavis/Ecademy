@@ -1,33 +1,81 @@
-<br />
+<script>
+    $(function () {
+        $('.lessons').sortable({
+            update: function (evt, ui) {
+                $.ajax({
+                    type: 'PUT',
+                    url: ui.item.data('update-url'),
+                    dataType: 'json',
+                    data: {
+                        lesson: {
+                            row_order_position: ui.item.index()
+                        }
+                    }
+                });
+            }
+        });
+
+        $('.sections').sortable({
+            update: function (evt, ui) {
+                $.ajax({
+                    type: 'PUT',
+                    url: ui.item.data('update-url'),
+                    dataType: 'json',
+                    data: {
+                        section: {
+                            row_order_position: ui.item.index()
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+<br/>
 <div class="booyah-box col-xs-10 offset-xs-1">
-  <h1 class="text-xs-center"><%= current_course.title %></h1>
-  <%= image_tag current_course.image, class: 'img-fluid' %>
-  <br />
-  
-  <%= link_to 'Preview as student...', course_path(current_course), class: 'btn btn-warning float-xs-right' %>
-  <br class="clr" />
-  
-  <div class="text-xs-center">
-    <%= link_to 'Add a new section...', new_instructor_course_section_path(current_course), class: 'btn btn-primary btn-large' %>
-  </div>
-  
-  <ul>
-    <% current_course.sections.each do |section| %>
-    <li>
-      <%= section.title %>
-      <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'btn float-xs-right btn-primary btn-xs' %>
-      <ul>
-        <% section.lessons.rank(:row_order).each do |lesson| %>
-          <li>
-            <em><%= lesson.title %></em>
-            -
-            <%= lesson.subtitle %>
-          </li>
+    <h1 class="text-xs-center"><%= current_course.title %></h1>
+    <%= image_tag current_course.image, class: 'img-fluid' %>
+    <br/>
+
+    <%= link_to 'Preview as student...', course_path(current_course), class: 'btn btn-warning float-xs-right' %>
+    <br class="clr"/>
+
+    <div class="text-xs-center">
+        <%= link_to 'Add a new section...', new_instructor_course_section_path(current_course), class: 'btn btn-primary btn-large' %>
+    </div>
+
+    <ul class="sections">
+        <% current_course.sections.rank(:row_order).each do |section| %>
+        <li data-update-url="<%= instructor_section_path(section) %>" class="section-li">
+            <div class="header pull-left">
+                <span class="fa fa-list"></span>
+                <%= section.title %>
+            </div>
+            <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'btn float-xs-right btn-primary btn-xs' %>
+            <br class="clr" />
+            <br class="clr" />
+            <ul class="lessons">
+                <% section.lessons.rank(:row_order).each do |lesson| %>
+                <li data-update-url="<%= instructor_lesson_path(lesson) %>">
+                    <div class="col-xs-1">
+                        <br />
+                        <span class="fa fa-list"></span>
+                    </div>
+                    <div class="col-xs-11 text-center">
+                        <p>
+                            <em><%= lesson.title %></em>
+                        </p>
+                        <p>
+                            <%= lesson.subtitle %>
+                        </p>
+                    </div>
+                    <br class="clr" />
+                </li>
+                <% end %>
+            </ul>
+            <br class="clr"/>
+        </li>
         <% end %>
-      </ul>
-      <br class="clr" />
-    </li>
-    <% end %>
-  </ul>
-  
+    </ul>
+
 </div>
