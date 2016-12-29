@@ -51,10 +51,42 @@
 
         <div id="footer">
             <div class="container">
-                <em>Teachers:
-                </em>
-                <br/>
-                <%= link_to 'Teach a course',  new_instructor_course_path %>
+                <div class="col-xs-12 col-sm-3">
+                    <em>Teachers:
+                    </em>
+                    <br/>
+                    <%= link_to 'Teach a course',  new_instructor_course_path %>
+                    <br />
+                    <%= link_to 'My Dashboard', dashboard_path %>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                  <em>About</em>
+                  <br />
+                  <%= link_to 'Team', '#' %>
+                  <br />
+                  <%= link_to 'Careers', '#' %>
+                  <br />
+                  <%= link_to 'Privacy Policy', '#' %>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                  <em>Contact</em>
+                  <br />
+                  arwen0603@gmail.com
+                  <br />
+                  Locust Valley
+                  <br />
+                  NY, 11560
+                </div>
+                <div class="col-xs-12 col-sm-3 social">
+                  <em>Social</em>
+                  <br />
+                  <%= link_to 'https://github.com/SijiaDavis' do %>
+                    <span class="fa fa-github-square fa-2x social-button"></span>
+                  <% end %>
+                  <%= link_to '#' do %>
+                    <span class="fa fa-twitter-square fa-2x social-button"></span>
+                  <% end %>
+                </div>
             </div>
         </div>
     </body>
